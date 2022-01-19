@@ -1,0 +1,21 @@
+<div class="list-group col-lg-3" style="flex-direction: row; max-width: 70%">
+    <a href="/manage/Playlist/{{playlist._id}}" class="list-group-item list-group-item-info">Sửa playlist</a>
+    <a href="/manage/PlaylistImage/{{playlist._id}}" class="list-group-item list-group-item-info">Sửa ảnh playlist</a>
+</div>
+<h1>Sửa Ảnh playlist</h1>
+<h4 style="color:green">{{message}}</h4>
+<div class="mt-4 col-lg-6">
+    <form method="post" action="updatePlaylistImage?_method=PUT" enctype="multipart/form-data" > 
+        <input type="hidden" name="idPlaylist" value="{{playlist._id}}">
+        <div class="form-group">
+            <label for="image">chọn hình cho playlist</label>
+            <input type="file" class="form-control-file" id="image" name="image" accept=".png, .jpg" required>
+        </div>
+        <h3>Hình hiện tại</h3>
+        <img src="{{playlist.image}}" alt="{{playlistImageAlt}}" width="300" height="400">
+
+        <br />
+        <button type="submit" class="btn btn-primary">sửa hình playlist</button>
+        <a href="/manage/Playlist" class="btn btn-primary">Trở lại</a>
+    </form>
+</div>

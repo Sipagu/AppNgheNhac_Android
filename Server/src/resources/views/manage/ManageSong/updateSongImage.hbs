@@ -1,0 +1,21 @@
+<div class="list-group col-lg-3" style="flex-direction: row; max-width: 70%">
+    <a href="/manage/Song/{{song._id}}" class="list-group-item list-group-item-info">Sửa bài hát</a>
+    <a href="/manage/SongImage/{{song._id}}" class="list-group-item list-group-item-info">Sửa ảnh bài hát</a>
+</div>
+<h1>Sửa Ảnh bài hát</h1>
+<h4 style="color:green">{{message}}</h4>
+<div class="mt-4 col-lg-6">
+    <form method="post" action="updateSongImage?_method=PUT" enctype="multipart/form-data" > 
+        <input type="hidden" name="idSong" value="{{song._id}}">
+        <div class="form-group">
+            <label for="image">chọn hình cho bài hát</label>
+            <input type="file" class="form-control-file" id="image" name="image" accept=".png, .jpg" required>
+        </div>
+        <h3>Hình hiện tại</h3>
+        <img src="{{song.image}}" alt="{{songImageAlt}}" width="300" height="400">
+
+        <br />
+        <button type="submit" class="btn btn-primary">sửa hình bài hát</button>
+        <a href="/manage/Song" class="btn btn-primary">Trở lại</a>
+    </form>
+</div>

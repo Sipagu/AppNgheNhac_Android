@@ -1,0 +1,21 @@
+<div class="list-group col-lg-3" style="flex-direction: row; max-width: 70%">
+    <a href="/manage/Category/{{category._id}}" class="list-group-item list-group-item-info">Sửa thể loại</a>
+    <a href="/manage/CategoryImage/{{category._id}}" class="list-group-item list-group-item-info">Sửa ảnh thể loại</a>
+</div>
+<h1>Sửa ảnh thể loại</h1>
+<h4 style="color:green">{{message}}</h4>
+<div class="mt-4 col-lg-6">
+    <form method="post" action="updateCategoryImage?_method=PUT" enctype="multipart/form-data" > 
+        <input type="hidden" name="idCategory" value="{{category._id}}">
+        <div class="form-group">
+            <label for="image">chọn hình cho thể loại</label>
+            <input type="file" class="form-control-file" id="image" name="image" accept=".png, .jpg" required>
+        </div>
+        <h3>Hình hiện tại</h3>
+        <img src="{{category.imageCategory}}" alt="{{categoryImageAlt}}" width="300" height="400">
+
+        <br />
+        <button type="submit" class="btn btn-primary">sửa hình thể loại</button>
+        <a href="/manage/Category" class="btn btn-primary">Trở lại</a>
+    </form>
+</div>

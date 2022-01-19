@@ -1,0 +1,27 @@
+{{> LinkManage}}
+<h1>Danh sách ca sĩ</h1>
+<div class="ml-3 mr-3">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Tên Ca sĩ</th>
+                <th scope="col">Chỉnh sửa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each singers}}
+            <tr>
+                <th scope="row">{{sumIndex @index 1}}</th>
+                <td>{{this.singername}}</td>
+                <td> 
+                    <a href="/manage/Singer/{{this._id}}">Sửa</a> |
+                    <a href="#" data-toggle="modal" data-target="#ModalDelete" data-id="{{this._id}}" data-action="/Manage/Singer/">Xóa</a>
+                </td>
+            </tr>
+           {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{> ModalDelete}}

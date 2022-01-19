@@ -1,0 +1,23 @@
+<h1>Thêm playlist</h1>
+
+<div class="mt-4 col-lg-4">
+    <form method="post" action="insertPlaylistPost" enctype="multipart/form-data"> 
+        <div class="form-group">
+            <label for="Playlistname">Tên playlist</label>
+            <input type="text" name="playlistname" class="form-control" id="Playlistname" placeholder="Tên playlist" required>
+        </div>
+        <div class="form-group">
+            <label for="imagePlaylist">chọn hình cho playlist</label>
+            <input type="file" class="form-control-file" id="imagePlaylist" name="imagePlaylist" accept=".png, .jpg" required>
+        </div>
+
+        {{#each categories}}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="categoryId" id="{{this._id}}" value="{{this._id}}" checked required>
+            <label class="form-check-label" for="{{this._id}}"> {{this.categoryname}} </label>
+        </div>
+        {{/each}}
+        
+        <button type="submit" class="btn btn-primary">Thêm playlist</button>
+    </form>
+</div>

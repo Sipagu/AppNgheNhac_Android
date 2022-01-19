@@ -1,0 +1,29 @@
+{{> LinkManage}}
+<h1>Danh sách Playlist</h1>
+<div class="ml-3 mr-3">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Tên Playlist</th>
+                <th scope="col">Thể loại</th>
+                <th scope="col">Chỉnh sửa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each playlists}}
+            <tr>
+                <th scope="row">{{sumIndex @index 1}}</th>
+                <td>{{this.playlistname}}</td>
+                <td>{{this.category.categoryname}}</td>
+                <td> 
+                    <a href="/manage/Playlist/{{this._id}}">Sửa</a> |
+                    <a href="#" data-toggle="modal" data-target="#ModalDelete" data-id="{{this._id}}" data-action="/Manage/Playlist/">Xóa</a>
+                </td>
+            </tr>
+           {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{> ModalDelete}}

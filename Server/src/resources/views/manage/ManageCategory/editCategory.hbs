@@ -1,0 +1,17 @@
+<div class="list-group col-lg-3" style="flex-direction: row; max-width: 70%">
+    <a href="/manage/Category/{{category._id}}" class="list-group-item list-group-item-info">Sửa thể loại</a>
+    <a href="/manage/CategoryImage/{{category._id}}" class="list-group-item list-group-item-info">Sửa ảnh thể loại</a>
+</div>
+<h1>Sửa thể loại</h1>
+{{message}}
+<div class="mt-4 col-lg-6">
+    <form method="post" action="editCategory?_method=PUT" > 
+        <input type="hidden" name="idCategory" value="{{category._id}}">
+        <div class="form-group">
+            <label for="categoryname">Tên thể loại</label>
+            <input type="text" name="categoryname" class="form-control col-lg-6" id="categoryname" placeholder="Tên thể loại" value="{{category.categoryname}}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Sửa thể loại</button>
+        <a href="/manage/Category" class="btn btn-primary">Trở lại</a>
+    </form>
+</div>

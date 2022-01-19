@@ -1,0 +1,27 @@
+<div class="list-group col-lg-3" style="flex-direction: row; max-width: 70%">
+    <a href="/manage/Album/{{album._id}}" class="list-group-item list-group-item-info">Sửa album</a>
+    <a href="/manage/AlbumImage/{{album._id}}" class="list-group-item list-group-item-info">Sửa ảnh album</a>
+</div>
+
+<h1>Sửa album</h1>
+{{message}}
+<div class="mt-4 col-lg-6">
+    <form method="post" action="editAlbum?_method=PUT" > 
+        <input type="hidden" name="idAlbum" value="{{album._id}}">
+        <div class="form-group">
+            <label for="albumname">Tên album</label>
+            <input type="text" name="albumname" class="form-control col-lg-6" id="albumname" placeholder="Tên Album" value="{{album.albumname}}" required>
+        </div>
+
+        <h3>Ca sĩ</h3>
+        {{#each singers}}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="singerId" id="{{this._id}}" value="{{this._id}}" {{checkSinger this._id}}>
+                <label class="form-check-label" for="{{this._id}}"> {{this.singername}} </label>
+            </div>
+        {{/each}}
+
+        <button type="submit" class="btn btn-primary">Sửa album</button>
+        <a href="/manage/Album" class="btn btn-primary">Trở lại</a>
+    </form>
+</div>
